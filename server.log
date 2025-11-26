@@ -25,3 +25,28 @@ Emitted 'error' event on Server instance at:
 }
 
 Node.js v22.21.1
+11:25:18 PM [tsx] change in ./src/controllers/analytics.controller.ts Rerunning...
+c11:25:21 PM [tsx] change in ./src/controllers/analytics.controller.ts Restarting...
+c✅ MongoDB conectado
+node:events:497
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE: address already in use :::3000
+    at Server.setupListenHandle [as _listen2] (node:net:1940:16)
+    at listenInCluster (node:net:1997:12)
+    at Server.listen (node:net:2102:7)
+    at Function.listen (/workspaces/Proyecto_mongo_NOSQL/node_modules/express/lib/application.js:635:24)
+    at start (/workspaces/Proyecto_mongo_NOSQL/src/server.ts:56:7)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+Emitted 'error' event on Server instance at:
+    at emitErrorNT (node:net:1976:8)
+    at process.processTicksAndRejections (node:internal/process/task_queues:90:21) {
+  code: 'EADDRINUSE',
+  errno: -98,
+  syscall: 'listen',
+  address: '::',
+  port: 3000
+}
+
+Node.js v22.21.1

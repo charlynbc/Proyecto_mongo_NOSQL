@@ -18,7 +18,7 @@ export async function compararCanasta(req: Request, res: Response, next: NextFun
       return res.status(400).json({ message: "No se enviaron IDs de productos válidos" });
     }
 
-    const pipeline = [
+    const pipeline: any[] = [
       {
         $match: {
           producto: { $in: productoIds }

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <title>Precio Comercio – Demo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <h1>Precio Comercio</h1>
+    <p class="subtitle">Comparador simple de comercios, productos y precios (MongoDB + API)</p>
+  </header>
+
+  <main class="container">
+    <section class="panel">
+      <h2>Ver datos</h2>
+      <div class="buttons-row">
+        <button id="btn-comercios">Ver Comercios</button>
+        <button id="btn-productos">Ver Productos</button>
+        <button id="btn-precios">Ver Precios</button>
+        <button id="btn-canasta">Comparar canasta básica</button>
+      </div>
+      <p id="status" class="status"></p>
+      <div class="table-wrapper">
+        <table id="data-table">
+          <thead></thead>
+          <tbody></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Agregar comercio rápido</h2>
+      <form id="form-comercio">
+        <div class="field">
+          <label>Nombre</label>
+          <input type="text" name="nombre" placeholder="Devoto Pocitos" required />
+        </div>
+        <div class="field">
+          <label>Rubro</label>
+          <input type="text" name="rubro" placeholder="supermercado" required />
+        </div>
+        <div class="field">
+          <label>Dirección</label>
+          <input type="text" name="direccion" placeholder="Bvar. España 1234" required />
+        </div>
+        <div class="field">
+          <label>Latitud</label>
+          <input type="number" step="0.0001" name="lat" placeholder="-34.90" required />
+        </div>
+        <div class="field">
+          <label>Longitud</label>
+          <input type="number" step="0.0001" name="lng" placeholder="-56.16" required />
+        </div>
+        <div class="field">
+          <label>Medios de pago (separados por coma)</label>
+          <input type="text" name="medios_pago" placeholder="efectivo, debito, credito" />
+        </div>
+        <button type="submit">Guardar comercio</button>
+      </form>
+    </section>
+
+    <section class="panel">
+      <h2>Agregar producto y precio a un comercio</h2>
+      <form id="form-producto-precio">
+        <div class="field">
+          <label>Comercio</label>
+          <select name="comercioId" id="select-comercio" required>
+            <option value="">Selecciona un comercio</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Producto existente</label>
+          <select name="productoId" id="select-producto">
+            <option value="">Selecciona un producto existente (opcional)</option>
+          </select>
+          <small style="color:#9ca3af; font-size:0.75rem;">
+            Si no hay un producto adecuado, podés crear uno nuevo abajo.
+          </small>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid #1f2937; margin: 0.75rem 0;" />
+
+        <div class="field">
+          <label>O crear producto nuevo</label>
+          <input type="text" name="nuevoNombre" placeholder="Nombre del producto (ej: Yogur 1L)" />
+        </div>
+        <div class="field">
+          <label>Marca</label>
+          <input type="text" name="nuevoMarca" placeholder="Marca (ej: Conaprole)" />
+        </div>
+        <div class="field">
+          <label>Categoría (texto simple)</label>
+          <input type="text" name="nuevoCategoria" placeholder="lacteos, almacen, etc." />
+        </div>
+
+        <div class="field">
+          <label>Precio</label>
+          <input type="number" name="precio" step="0.01" placeholder="123.45" required />
+        </div>
+        <div class="field">
+          <label>Moneda</label>
+          <input type="text" name="moneda" value="UYU" required />
+        </div>
+        <div class="field">
+          <label>Promo (opcional)</label>
+          <input type="text" name="promo" placeholder="2x1, mitad, ninguna, etc." />
+        </div>
+
+        <button type="submit">Guardar producto + precio</button>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <small>Backend: Node.js + Express + MongoDB · Frontend: HTML + CSS + JS simple</small>
+  </footer>
+</body>
+</html>

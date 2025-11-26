@@ -318,10 +318,10 @@ La conexión se gestiona mediante variables de entorno (`MONGODB_URI`), lo que p
 
 ### Automatización del Despliegue
 
-Se crearon scripts de automatización para facilitar el ciclo de vida de la aplicación:
+Se crearon scripts de automatización (`.bat`) para facilitar el ciclo de vida de la aplicación en entornos Windows:
 
-*   `start.sh`: Script para el entorno de desarrollo. Verifica dependencias, asegura que el servicio de MongoDB local esté corriendo, carga datos de prueba y levanta el servidor en modo `watch`.
-*   `deploy.sh`: Script para producción. Detiene procesos anteriores, instala dependencias, compila el código TypeScript, resetea la base de datos con datos frescos y lanza el servidor optimizado.
+*   `start.bat`: Script para el entorno de desarrollo. Verifica dependencias, carga datos de prueba y levanta el servidor en modo `watch`.
+*   `deploy.bat`: Script para producción. Detiene procesos anteriores en el puerto 3000, instala dependencias, compila el código TypeScript, resetea la base de datos con datos frescos y lanza el servidor optimizado.
 
 ---
 

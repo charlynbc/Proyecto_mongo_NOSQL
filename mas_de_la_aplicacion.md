@@ -18,18 +18,18 @@ Para facilitar la interacción con la API sin depender exclusivamente de herrami
 
 ---
 
-## 🤖 2. Automatización y Scripts (DevOps)
+## 🤖 2. Automatización y Scripts (DevOps - Windows)
 
-Se crearon scripts de Bash para simplificar el ciclo de vida del desarrollo y el despliegue, abstrayendo la complejidad de los comandos de terminal.
+Se crearon scripts Batch (`.bat`) para simplificar el ciclo de vida del desarrollo y el despliegue en sistemas operativos Windows.
 
-### `start.sh` (Entorno de Desarrollo)
+### `start.bat` (Entorno de Desarrollo)
 *   Verifica si `node_modules` existe e instala dependencias si faltan.
-*   Comprueba si el servicio de MongoDB local está corriendo; si no, lo inicia automáticamente.
+*   Verifica la conexión básica (asume MongoDB corriendo como servicio o Atlas).
 *   Ejecuta el script de `seed` para reiniciar la base de datos con datos de prueba limpios.
 *   Inicia el servidor en modo `watch` (recarga automática ante cambios).
 
-### `deploy.sh` (Entorno de Producción)
-*   **Limpieza:** Detecta y detiene cualquier proceso corriendo en el puerto 3000.
+### `deploy.bat` (Entorno de Producción)
+*   **Limpieza:** Detecta y detiene cualquier proceso corriendo en el puerto 3000 usando `netstat` y `taskkill`.
 *   **Build:** Compila el código TypeScript a JavaScript optimizado (`dist/`).
 *   **Persistencia:** Se conecta a la base de datos (Local o Atlas según configuración).
 *   **Ejecución:** Lanza la aplicación utilizando `node` directo sobre los archivos compilados para máximo rendimiento.

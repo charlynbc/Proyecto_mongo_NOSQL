@@ -84,7 +84,9 @@ btnProductos?.addEventListener("click", async () => {
     marca: p.marca,
     // Usamos categoriaNombre si existe, para que no muestre el ID feo
     categoria: p.categoriaNombre || p.categoria || "",
-    atributos: p.atributos ? JSON.stringify(p.atributos) : "",
+    atributos: p.atributos 
+      ? Object.entries(p.atributos).map(([k, v]) => `${k}: ${v}`).join(", ") 
+      : "",
   }));
 
   renderTable(["nombre", "marca", "categoria", "atributos"], rows);
